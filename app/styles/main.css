@@ -1,0 +1,41 @@
+body {
+    background-color: #F9F9F9;
+}
+
+.container {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    padding: 40px;
+}
+
+section {
+    border-radius: 4px;
+    border: 1px solid #EFEFEF;
+}
+
+form {
+    background-color: #EFEFEF;
+    width: 400px;
+    padding: 20px;
+}
+.comments {
+    padding: 20px;
+    background-color: #fff;
+}
+textarea {
+    resize: none;
+}
+.avatar {
+    margin-right: 10px;
+}
+.avatar img {
+    border-radius: 5px;
+}
+
+.list-group-item {
+    border: 0;
+}

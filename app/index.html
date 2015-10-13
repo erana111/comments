@@ -1,0 +1,64 @@
+<!doctype html>
+<html class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- build:css(.) styles/vendor.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:css(.tmp) styles/main.css -->
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- endbuild -->
+  </head>
+  <body ng-app="commentsApp">
+
+    <div class="container" ng-controller="MainCtrl">
+        <section>
+            <form name="commentsFrm">
+                <div class="form-group">
+                    <input type="email" id="email" ng-model="email" placeholder="Email" class="form-control" required/>
+                </div>
+                <div class="form-group">
+                    <textarea rows="3" no-resize id="message" ng-model="msg" placeholder="Message" class="form-control" required></textarea>
+                </div>
+                <div class="text-right"><input class="btn btn-primary" type="button" ng-click="setComment()" value="Submit"/></div>
+            </form>
+            <div class="comments">
+                <div class="form-group">
+                    <input type="text" class="form-control" ng-model="cFilter" placeholder="Filter"/>
+                </div>
+                <ul class="list-group">
+                    <li class="list-group-item" ng-repeat="comment in comments | filter: cFilter">
+                        <div class="pull-left avatar">
+                            <img src="http://www.gravatar.com/avatar/{{comment.email | gravatar}}" width="40" height="40"/>
+                        </div>
+                        <div class="commentsTxt">
+                            <div>{{comment.email}}</div>
+                            <div>{{comment.msg}}</div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </div>
+
+    <!-- build:js(.) scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-md5/angular-md5.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- build:js({.tmp,app}) scripts/scripts.js -->
+    <script src="scripts/app.js"></script>
+    <script src="scripts/controllers/main.js"></script>
+    <script src="scripts/filters/gravatar.js"></script>
+    <!-- endbuild -->
+</body>
+</html>
